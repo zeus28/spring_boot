@@ -35,7 +35,9 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	 public User createUser(User user, Set<UserRole> userRoles) {
+		 
 	        User localUser = userDao.findByUsername(user.getUsername());
+	        // some comments;
 
 	        if (localUser != null) {
 	            LOG.info("User with username {} already exist. Nothing will be done. ", user.getUsername());
