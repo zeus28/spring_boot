@@ -12,16 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 import com.userfront.dao.RoleDao;
 import com.userfront.dao.UserDao;
 import com.userfront.domain.User;
-import com.userfront.domain.security.Role;
+//import com.userfront.domain.security.Role;
 import com.userfront.domain.security.UserRole;
 import com.userfront.service.AccountService;
-import  com.userfront.service.UserService;
+//import  com.userfront.service.UserService;
+import com.userfront.service.UserService;
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
+	
 	@Autowired
 	private UserDao userDao;
 	

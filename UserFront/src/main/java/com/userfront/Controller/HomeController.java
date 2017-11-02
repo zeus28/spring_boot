@@ -14,15 +14,17 @@ import com.userfront.dao.RoleDao;
 import com.userfront.domain.User;
 import com.userfront.domain.security.UserRole;
 import com.userfront.service.UserService;
+import com.userfront.service.UserServiceImpl.UserServiceImpl;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private UserService userService;
+	private RoleDao roleDao;
 	
 	@Autowired
-	private RoleDao roleDao;
+	private UserService userService;
+	
 	
 	@RequestMapping("/")
 	public String name() {
@@ -38,8 +40,10 @@ public class HomeController {
 		model.addAttribute("user",user);
 		return "signup";
 	}
+
 	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public String signupPost(@ModelAttribute("user")User user,Model model) {
+		
 		
 		if (userService.checkUserExists(user.getUsername(),user.getEmail())) {
 			if (userService.checkEmailExists(user.getEmail())) {
@@ -55,10 +59,9 @@ public class HomeController {
 			userRoles.add(new UserRole(user,roleDao.findByName("USER")));
 			userService.createUser(user, userRoles);
 			return "redirect:/";
-			/*Set<UserRole> userRoles = new HashSe<>();
-			userRoles.add(new UserRole(user,roleDao,findByName("User")));
-			userService.createUser(user,userRoles);*/
+			
 		}
+		
 		
 		
 	}

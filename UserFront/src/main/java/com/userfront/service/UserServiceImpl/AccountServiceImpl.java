@@ -1,8 +1,12 @@
 package com.userfront.service.UserServiceImpl;
 
+
+
 import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.userfront.dao.PrimaryAccountDao;
 import com.userfront.dao.SavingsAccountDao;
@@ -10,6 +14,8 @@ import com.userfront.domain.PrimaryAccount;
 import com.userfront.domain.SavingsAccount;
 import com.userfront.service.AccountService;
 
+@Service
+@Transactional
 public class AccountServiceImpl implements AccountService {
 	private static int nextAccountNumber= 1112533; 
 	
