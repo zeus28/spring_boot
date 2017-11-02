@@ -1,5 +1,6 @@
 package com.userfront.Controller;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.userfront.dao.RoleDao;
 import com.userfront.domain.User;
+import com.userfront.domain.security.UserRole;
 import com.userfront.service.UserService;
 
 @Controller
@@ -17,6 +20,10 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RoleDao roleDao;
+	
 	@RequestMapping("/")
 	public String name() {
 		return "redirect:/index";
@@ -44,7 +51,9 @@ public class HomeController {
 			return "signup";
 		}else {
 			
-			userService.create(user);
+			Set<UserRole> userRoles = new HashSet<>();
+			userRoles.add(new UserRole(user,roleDao.findByName("USER")));
+			userService.createUser(user, userRoles);
 			return "redirect:/";
 			/*Set<UserRole> userRoles = new HashSe<>();
 			userRoles.add(new UserRole(user,roleDao,findByName("User")));

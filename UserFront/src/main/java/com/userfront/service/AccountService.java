@@ -1,10 +1,9 @@
 package com.userfront.service;
 
-public class AccountService {
-	public void createPrimaryAccount() {
-	
-	}
-	public void createSavingsAccount() {
-		
-	}
+import com.userfront.domain.PrimaryAccount;
+import com.userfront.domain.SavingsAccount;
+
+public interface AccountService {
+	PrimaryAccount createPrimaryAccount(); 
+	SavingsAccount createSavingsAccount();
 }

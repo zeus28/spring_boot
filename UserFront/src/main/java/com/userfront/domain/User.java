@@ -131,6 +131,38 @@ public class User implements UserDetails {
 		return phone;
 	}
 
+	public PrimaryAccount getPrimaryAccount() {
+		return primaryAccount;
+	}
+
+	public void setPrimaryAccount(PrimaryAccount primaryAccount) {
+		this.primaryAccount = primaryAccount;
+	}
+
+	public SavingsAccount getSavingsAccount() {
+		return savingsAccount;
+	}
+
+	public void setSavingsAccount(SavingsAccount savingsAccount) {
+		this.savingsAccount = savingsAccount;
+	}
+
+	public List<Appointment> getAppointmentList() {
+		return appointmentList;
+	}
+
+	public void setAppointmentList(List<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
+	}
+
+	public List<Recipient> getRecipientList() {
+		return recipientList;
+	}
+
+	public void setRecipientList(List<Recipient> recipientList) {
+		this.recipientList = recipientList;
+	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
