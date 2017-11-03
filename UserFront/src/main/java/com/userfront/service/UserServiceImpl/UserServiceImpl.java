@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService {
 
 	            for (UserRole ur : userRoles) {
 	            	roleDao.save(ur.getRole());
+	            	
 	            }
 	            user.getUserRoles().addAll(userRoles);
 	            user.setPrimaryAccount(accountService.createPrimaryAccount());
