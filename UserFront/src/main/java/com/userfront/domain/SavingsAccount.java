@@ -22,7 +22,7 @@ public class SavingsAccount {
 	
 	@OneToMany(mappedBy="savingAccount",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	@JsonIgnore
-	private List<SavingTransaction> savingTransactionList;
+	private List<SavingsTransaction> savingTransactionList;
 	
 	public Long getId() {
 		return id;
@@ -42,10 +42,10 @@ public class SavingsAccount {
 	public void setAccountBalance(BigDecimal accountBalance) {
 		this.accountBalance = accountBalance;
 	}
-	public List<SavingTransaction> getSavingTransactionList() {
+	public List<SavingsTransaction> getSavingsTransactionList() {
 		return savingTransactionList;
 	}
-	public void setSavingTransactionList(List<SavingTransaction> savingTransactionList) {
+	public void setSavingTransactionList(List<SavingsTransaction> savingTransactionList) {
 		this.savingTransactionList = savingTransactionList;
 	}
 	

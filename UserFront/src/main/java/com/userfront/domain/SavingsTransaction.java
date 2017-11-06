@@ -1,7 +1,7 @@
 package com.userfront.domain;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 @Entity
-public class SavingTransaction {
+public class SavingsTransaction {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -21,12 +21,15 @@ public class SavingTransaction {
 	private String type ;
 	private String status;
 	private double amount;
-	private BigDecimal availableBalanbce; 
+	
+	
+	private BigDecimal availableBalance; 
+	
 	@ManyToOne
 	@JoinColumn(name="saving_account_id")
 	private SavingsAccount savingAccount;
 	
-	public SavingTransaction(Date date, String description, String type, String status, double amount,
+	public SavingsTransaction(Date date, String description, String type, String status, double amount,
 			BigDecimal availableBalanbce, SavingsAccount savingAccount) {
 		super();
 		this.date = date;
@@ -34,7 +37,7 @@ public class SavingTransaction {
 		this.type = type;
 		this.status = status;
 		this.amount = amount;
-		this.availableBalanbce = availableBalanbce;
+		this.availableBalance = availableBalanbce;
 		this.savingAccount = savingAccount;
 	}
 	public Long getId() {
@@ -73,11 +76,11 @@ public class SavingTransaction {
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
-	public BigDecimal getAvailableBalanbce() {
-		return availableBalanbce;
+	public BigDecimal getAvailableBalance() {
+		return availableBalance;
 	}
-	public void setAvailableBalanbce(BigDecimal availableBalanbce) {
-		this.availableBalanbce = availableBalanbce;
+	public void setAvailableBalance(BigDecimal availableBalanbce) {
+		this.availableBalance = availableBalanbce;
 	}
 	public SavingsAccount getSavingAccount() {
 		return savingAccount;
@@ -86,6 +89,6 @@ public class SavingTransaction {
 		this.savingAccount = savingAccount;
 	}
 	
-	public SavingTransaction() {}
+	public SavingsTransaction() {}
 
 }
