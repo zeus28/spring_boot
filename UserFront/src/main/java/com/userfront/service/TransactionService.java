@@ -8,7 +8,7 @@ import com.userfront.domain.PrimaryTransaction;
 import com.userfront.domain.Recipient;
 import com.userfront.domain.SavingsTransaction;
 import com.userfront.domain.SavingsAccount;
-import com.userfront.domain.SavingsTransaction;
+
 
 public interface TransactionService {
 	List<PrimaryTransaction> findPrimaryTransactionList(String username);
